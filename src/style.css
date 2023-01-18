@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #d1c6f3;
+  font-family: system-ui, sans-serif;  
+}
+
+.calculator {
+  display: flex;
+  height: 305px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8 rem;
+  border-radius: 4px;
+  border: 13px solid #F1EAD6;
+  border-top-color: #ECE4C2;
+  border-bottom-color: #F4EFDC;
+  outline: 3px solid rgba(93, 72, 15, 0.2);
+  outline-offset: -1px;
+  background-color: #FCF7E4;
+}
+
+
+.screen{
+	height:40px;
+  width:169px;
+	margin: 5px 3px 10px 3px;
+	padding-right: 6px;
+  /* 숫자 입력란이 너무 붙어서 좀 띄어놓음 */
+	background:#afafaf;
+	text-align: right;
+  font-weight: 600;
+	border-radius: 4px;
+	border:1px solid #6B6B6B;
+	font:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	box-shadow:inset 0 0 10px #333,
+	inset 0 1px 1px #0a0b0d1c, 0px 1px #E6E6E6;
+} 
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border-top: 2px solid rgb(58, 45, 9);
+  border-left: 2px solid rgb(58, 45, 9);
+  border-right: 2px solid rgb(58, 45, 9);
+}
+
+.row {
+  height: 43px;
+  width: 166px;
+  padding-top: 0.5px;
+  display: -webkit-box;
+  display: flex;
+  flex-direction: row;
+  /* 옆으로 늘어뜨리자 */
+  justify-content: space-between;  
+  background: rgb(58, 45, 9);
+}
+
+kbd {
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.75);
+  display: inline-block;
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.125;
+  padding: 0.33em 0.66em;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border: 3px solid transparent;
+  border-top: 2px solid transparent;
+  border-bottom: 6px solid transparent;
+  background-color: #FCF7E8;
+  border-color: #EDE5C3;
+  border-top-color: #FBF4D9;
+  border-bottom-color: #E1D8B9;
+  box-shadow: 0 -0.125em 0 -0.063em #a6a29a, 0 0.125em 0 -0.063em rgba(0, 0, 0, 0.5);
+  transition: -webkit-transform 100ms;
+  transition: transform 100ms;
+  transition: transform 100ms, -webkit-transform 100ms;
+  outline: 0;
+}
+kbd::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+  border-radius: 4px;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+kbd::before {
+  border-left-color: #C8C1A5;
+  border-right-color: #C8C1A5;
+  border-bottom-color: #E0D8B8;
+  box-shadow: 0 4px 4px -3px rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(to right, #FEFBF0, #e1d8b96e 1%, transparent 50%, transparent 0%, #e1d8b96e 99%, #FEFBF0);
+}
+kbd:active, kbd.pressed {
+           transform: scale(0.98, 0.98) translate(0, 2px);
+}
+/* active는 마우스 버튼을 누르는 순간부터 떼는 시점 */
+
+kbd[data-key]::after {
+  position: relative;
+  top: 3px;
+  z-index: 1;   /* 제일 위에 */
+  font-style: normal;
+  content: attr(data-key);
+}
